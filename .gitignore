@@ -1,0 +1,63 @@
+########################################
+# Artefatos de build Go
+########################################
+*.exe        # binários Windows
+*.dll
+*.so
+*.dylib
+*.test       # binários de teste gerados por `go test`
+*.out        # saída de cobertura (`go test -coverprofile`)
+
+# Diretórios populares de saída
+/bin/
+/build/
+/dist/
+/pkg/        # se você estiver usando GOPATH clássico
+
+########################################
+# Gerenciamento de dependências
+########################################
+/vendor/     # gerado por `go mod vendor`
+/Godeps/     # projetos legado (dep)
+
+########################################
+# Dados de teste e cobertura
+########################################
+*.cover
+*.coverprofile
+*.cov
+*.prof
+
+########################################
+# Configs e segredos
+########################################
+.env
+.env.*
+
+########################################
+# Ferramentas e IDEs
+########################################
+# JetBrains (GoLand, IntelliJ IDEA)
+.idea/
+
+# VS Code
+.vscode/
+
+# Sublime Text
+*.sublime-*
+
+########################################
+# Sistemas operacionais
+########################################
+.DS_Store    # macOS
+Thumbs.db    # Windows
+
+########################################
+# Logs
+########################################
+*.log
+
+########################################
+# Node/Front‑end (caso seu projeto tenha UI)
+########################################
+node_modules/
