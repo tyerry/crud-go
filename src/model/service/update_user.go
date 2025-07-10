@@ -7,7 +7,7 @@ import (
 
 func (*userDomainService) UpdateUser(
 	userId string, 
-	userDomain model.UserDomainInterface,
+	userDomainInterface model.UserDomainInterface,
 	) *rest_err.RestErr {
 	return nil
 }

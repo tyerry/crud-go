@@ -8,6 +8,7 @@ import (
 	"github.com/tyerry/crud-go/src/configuration/validation"
 	"github.com/tyerry/crud-go/src/controller/model/request"
 	"github.com/tyerry/crud-go/src/model"
+	"github.com/tyerry/crud-go/src/view"
 	"go.uber.org/zap"
 )
 
@@ -15,7 +16,7 @@ var (
 	UserDomainInterface model.UserDomainInterface
 )
 
-func CreateUser(ctx *gin.Context) {
+func (userControllerInterface *userControllerInterface) CreateUser(ctx *gin.Context) {
 	logger.Info("Init CreateUser controller",
 	zap.String("journey", "createUser"),
 	)
@@ -40,7 +41,7 @@ func CreateUser(ctx *gin.Context) {
 		userRequest.Age,
 	)
 
-	if err := domain.CreateUser(); err != nil {
+	if err := userControllerInterface.service.CreateUser(domain); err != nil {
 		ctx.JSON(err.Code, err)
 		return
 	}
@@ -49,5 +50,5 @@ func CreateUser(ctx *gin.Context) {
 		zap.String("journey", "createUser"),
 		)
 		
-	ctx.String(http.StatusOK, "")
+	ctx.JSON(http.StatusOK, view.ConvertDomainToResponse(domain))
 }

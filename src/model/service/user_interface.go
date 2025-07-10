@@ -6,12 +6,10 @@ import (
 )
 
 func NewUserDomainService() UserDomainService {
-	return &userDomainService{} //9:25
+	return &userDomainService{}
 }
 
-type userDomainService struct {
-
-}
+type userDomainService struct {}
 
 type UserDomainService interface {
 	CreateUser(model.UserDomainInterface) *rest_err.RestErr

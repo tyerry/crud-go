@@ -8,11 +8,11 @@ import (
 )
 
 func (userDomain *userDomainService) CreateUser(
-	UserDomainInterface model.UserDomainInterface,
+	userDomainInterface model.UserDomainInterface,
 ) *rest_err.RestErr {
 
 	logger.Info("Init createUser model", zap.String("journey","createUser"))	
 
-	UserDomainInterface.EncryptPassword()
+	userDomainInterface.EncryptPassword()
 	return nil
 }

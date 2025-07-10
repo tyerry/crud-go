@@ -6,11 +6,16 @@ import (
 )
 
 type UserDomainInterface interface {
-	
+	GetEmail() string
+	GetPassword() string
+	GetAge() int8
+	GetName() string
+	EncryptPassword()
 }
 
 func NewUserDomain(
-	email, password, name string, age int8,
+	email, password, name string, 
+	age int8,
 ) UserDomainInterface {
 	return &userDomain{
 		email, password, name, age,
@@ -24,19 +29,19 @@ type userDomain struct {
 	age      int8
 }
 
-func (userDomain *userDomain) GetEmail() {
+func (userDomain *userDomain) GetEmail() string {
 	return userDomain.email
 }
 
-func (userDomain *userDomain) GetPassword() {
+func (userDomain *userDomain) GetPassword() string {
 	return userDomain.password
 }
 
-func (userDomain *userDomain) GetName() {
+func (userDomain *userDomain) GetName() string {
 	return userDomain.name
 }
 
-func (userDomain *userDomain) GetAge() {
+func (userDomain *userDomain) GetAge() int8 {
 	return userDomain.age
 }
 
